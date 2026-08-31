@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#151914">
+  <title>钢铁校园：黄俊人保卫战</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" width="1280" height="720" aria-label="坦克大战游戏画面"></canvas>
+
+    <section id="menu" class="screen active">
+      <div class="menu-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">HUANG JUNREN · ORIGINAL GAME</p>
+          <h1><span>钢铁校园</span><small>黄俊人保卫战</small></h1>
+          <p class="lead">反弹弹道 · 无差别火力 · 无尽校园战场</p>
+          <div class="feature-strip"><span>八向机动</span><span>四类武器</span><span>波次成长</span></div>
+        </div>
+        <div class="command-panel metal-panel">
+          <div class="panel-cap"><span>作战终端</span><i id="saveLight"></i></div>
+          <label class="field-label" for="difficulty">作战难度</label>
+          <div class="difficulty" id="difficulty">
+            <button data-diff="rookie">新手<small>补给充足</small></button>
+            <button class="selected" data-diff="normal">标准<small>推荐体验</small></button>
+            <button data-diff="hard">挑战<small>精英增援</small></button>
+          </div>
+          <button id="newGame" class="primary">部署新行动 <kbd>ENTER</kbd></button>
+          <button id="continueGame" disabled>继续检查点 <span id="continueMeta">暂无存档</span></button>
+          <div class="menu-row">
+            <button data-open="tutorial">新手教程</button>
+            <button data-open="records">作战档案</button>
+          </div>
+          <div class="menu-row">
+            <button data-open="settings">系统设置</button>
+            <button data-open="credits">作者信息</button>
+          </div>
+          <button id="deleteSave" class="danger subtle" disabled>删除检查点</button>
+        </div>
+      </div>
+      <footer><span>原创设计 / 程序：黄俊人</span><span>V1.0 · CANVAS FIELD SYSTEM</span></footer>
+    </section>
+
+    <section id="hud" class="hud hidden">
+      <div class="hud-block identity"><b>HJ-R 01</b><span id="difficultyLabel">标准行动</span></div>
+      <div class="vitals hud-block"><span>装甲</span><div class="bar"><i id="hpBar"></i></div><b id="hpText">100 / 100</b><span>护盾</span><div class="bar shield"><i id="shieldBar"></i></div></div>
+      <div class="mission hud-block"><span>当前波次</span><b id="waveText">WAVE 01</b><small id="enemyText">敌军 0</small></div>
+      <div class="level hud-block"><span>等级 <b id="levelText">1</b></span><div class="bar xp"><i id="xpBar"></i></div><small id="scoreText">000000</small></div>
+      <div class="weapon hud-block"><span id="weaponKey">1</span><div><b id="weaponName">制式炮弹</b><small id="weaponAmmo">弹药 ∞</small></div></div>
+      <div class="taunt hud-block"><span>嘲讽 T</span><div class="bar"><i id="tauntBar"></i></div></div>
+      <canvas id="minimap" width="180" height="110"></canvas>
+      <div id="toast" class="toast"></div>
+      <div id="crosshair"></div>
+    </section>
+
+    <section id="pause" class="screen modal-screen hidden">
+      <div class="modal metal-panel compact"><p class="eyebrow">TACTICAL HOLD</p><h2>行动暂停</h2><button id="resume" class="primary">继续行动</button><button id="saveExit">返回主菜单</button><button data-open="settings">系统设置</button></div>
+    </section>
+
+    <section id="levelup" class="screen modal-screen hidden">
+      <div class="upgrade-wrap"><p class="eyebrow">FIELD PROMOTION</p><h2>战地晋升</h2><p>选择一项即时强化</p><div id="upgradeChoices" class="upgrade-grid"></div></div>
+    </section>
+
+    <section id="gameover" class="screen modal-screen hidden">
+      <div class="modal metal-panel result"><p class="eyebrow">ACTION REPORT</p><h2>行动终止</h2><div id="resultStats" class="result-grid"></div><button id="retry" class="primary">再次部署</button><button id="resultMenu">返回主菜单</button></div>
+    </section>
+
+    <section id="tutorial" class="screen drawer hidden"><div class="drawer-card"><button class="close" aria-label="关闭">×</button><p class="eyebrow">CADET HANDBOOK</p><h2>新手教程</h2><div class="tutorial-grid"><article><b>01</b><h3>八向机动</h3><p>WASD / 方向键移动，组合按键斜向行驶；鼠标控制炮塔。</p></article><article><b>02</b><h3>谨慎开火</h3><p>左键、J 或空格射击。所有炮弹均会误伤，包括你自己。</p></article><article><b>03</b><h3>借墙反弹</h3><p>普通炮弹会在边界和钢板反弹一次，用角度打击掩体后的敌人。</p></article><article><b>04</b><h3>战术武器</h3><p>数字键 1–5 切换。空对地导弹需先瞄准，再按攻击键确认。</p></article><article><b>05</b><h3>嘲讽诱敌</h3><p>按 T 吸引附近敌军，诱导它们互相误伤，冷却后可再次使用。</p></article><article><b>06</b><h3>补给成长</h3><p>摧毁木箱、精英或完成波次获得补给；升级时选择强化。</p></article></div></div></section>
+    <section id="records" class="screen drawer hidden"><div class="drawer-card"><button class="close">×</button><p class="eyebrow">COMBAT ARCHIVE</p><h2>作战档案</h2><div id="recordSummary" class="record-summary"></div><div id="recordList" class="record-list"></div></div></section>
+    <section id="settings" class="screen drawer hidden"><div class="drawer-card small"><button class="close">×</button><p class="eyebrow">SYSTEM CONTROL</p><h2>系统设置</h2><label>主音量 <input id="masterVolume" type="range" min="0" max="1" step="0.05"></label><label>震动强度 <input id="shakeSetting" type="range" min="0" max="1" step="0.1"></label><label>画面质量 <select id="quality"><option value="high">高</option><option value="medium">中</option><option value="low">低</option></select></label><p class="keys">移动 W A S D　射击 鼠标左键 / J / 空格<br>切换 1–5　嘲讽 T　暂停 P / ESC</p></div></section>
+    <section id="credits" class="screen drawer hidden"><div class="drawer-card small"><button class="close">×</button><p class="eyebrow">ORIGINAL WORK</p><h2>黄俊人</h2><p class="credit-copy">游戏设计、视觉设计与程序实现</p><div class="signature">黃俊人</div><p>校园主题无尽坦克大战参赛作品。地图核心障碍依次构成“黄、俊、人”三字，作为原创身份标识。</p></div></section>
+
+    <div id="loading" class="loading hidden"><div class="loader-mark">HJ</div><p>正在部署战场 <span id="loadPercent">0%</span></p><div class="loadbar"><i></i></div></div>
+    <div id="mobileControls" class="mobile-controls hidden"><div id="movePad" class="pad"><i></i></div><div id="aimPad" class="pad fire"><i></i><b>FIRE</b></div><button id="mobileTaunt">T</button></div>
+  </main>
+  <script defer src="game.js"></script>
+</body>
+</html>
