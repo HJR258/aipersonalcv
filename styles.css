@@ -218,7 +218,7 @@ h1, h2, h3, p { margin-top: 0; }
 
 .skills { padding: clamp(82px, 9vw, 145px) var(--pad); }
 .section-head--dark { color: var(--paper); }
-.skill-rack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.19); border: 1px solid rgba(255,255,255,.19); }
+.skill-rack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,.19); border: 1px solid rgba(255,255,255,.19); }
 .skill { display: flex; min-height: 570px; flex-direction: column; padding: clamp(24px, 3.2vw, 52px); background: var(--ink); transition: color .35s, background .35s; }
 .skill:hover { color: var(--ink); background: var(--lime); }
 .skill > div { display: flex; justify-content: space-between; align-items: center; }
@@ -317,6 +317,7 @@ h1, h2, h3, p { margin-top: 0; }
   .project--featured { grid-template-columns: 1fr; }
   .project--featured .project-media { min-height: 480px; }
   .project--featured .project-info { min-height: 500px; }
+  .skill-rack { grid-template-columns: repeat(2, 1fr); }
   .skill { min-height: 500px; }
 }
 

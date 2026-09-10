@@ -4,10 +4,10 @@
   const projects = {
     'tank-battle': {
       name: '《钢铁校园：黄俊人保卫战》',
-      type: 'CANVAS GAME · 独立设计与开发',
+      type: 'CANVAS GAME · 个人项目｜AI辅助开发',
       summary: '一款以校园为主题的无尽生存坦克游戏，围绕反弹弹道、无差别伤害和战场成长构建核心体验。',
       problem: '在无需安装、无需第三方框架的条件下，完成具备清晰反馈、持续成长和原创身份标识的参赛游戏。',
-      role: '独立负责玩法设计、界面设计、Canvas 渲染、敌方 AI、碰撞系统、存档和性能优化。',
+      role: '本人负责玩法设定、功能取舍、地图与界面设计、测试验收及迭代；使用 AI 辅助实现 Canvas 渲染、敌方 AI、碰撞系统、存档与性能优化。',
       highlights: ['支持八向移动、鼠标炮塔瞄准与移动端控制', '实现钢板及边界反弹，并统一处理敌我与自伤规则', '包含激光、巡航导弹、爆裂弹、空对地导弹和范围嘲讽', '使用“黄、俊、人”字形地图、无尽波次、升级三选一与检查点存档'],
       tech: ['HTML5 Canvas', 'JavaScript', '游戏 AI', '碰撞检测', 'Web Audio', 'LocalStorage'],
       image: 'screenshots/tank-battle.webp',
@@ -16,10 +16,10 @@
     },
     'resume-site': {
       name: '个人简历网站',
-      type: 'RESPONSIVE WEB · 独立设计与开发',
+      type: 'RESPONSIVE WEB · 个人项目｜AI辅助开发',
       summary: '一个零框架、可离线浏览的响应式个人作品集，兼顾内容可信度、交互体验和打印交付。',
       problem: '让浏览者快速理解个人定位、代表作品与技术能力，同时保持低加载成本和易维护性。',
-      role: '独立负责信息架构、视觉系统、响应式布局、项目数据结构、无障碍交互和性能优化。',
+      role: '本人负责信息整理、栏目规划、视觉方向、交互需求、素材选择和测试验收；使用 AI 辅助完成响应式布局、项目数据结构、无障碍交互与性能优化。',
       highlights: ['项目卡片与弹窗共享集中数据，避免内容漂移', '支持键盘操作、焦点管理和减少动画偏好', '使用 WebP、图片尺寸声明和懒加载优化体验', '提供 A4 打印样式，可直接导出 PDF 简历'],
       tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Accessibility', 'Print CSS'],
       image: 'screenshots/resume-site.webp?v=20260831',
