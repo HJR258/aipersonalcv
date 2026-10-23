@@ -157,7 +157,7 @@ h1, h2, h3, p { margin-top: 0; }
 .manifesto-stats strong { color: var(--lime); font-size: clamp(44px, 6vw, 92px); line-height: 1; letter-spacing: -.08em; }
 .manifesto-stats span { font-size: 12px; font-weight: 800; }
 
-.work, .awards { padding: clamp(82px, 9vw, 145px) var(--pad); background: var(--paper); }
+.work { padding: clamp(82px, 9vw, 145px) var(--pad); background: var(--paper); }
 .section-head { display: grid; grid-template-columns: 130px minmax(300px, .8fr) minmax(280px, .6fr); gap: 4vw; align-items: start; margin-bottom: clamp(54px, 7vw, 100px); }
 .section-head h2 { margin: 8px 0 0; font-size: clamp(58px, 8vw, 132px); line-height: .78; letter-spacing: -.075em; }
 .section-intro { align-self: end; max-width: 420px; margin: 0; font-size: clamp(16px, 1.4vw, 21px); }
@@ -174,9 +174,6 @@ h1, h2, h3, p { margin-top: 0; }
 .media-index-meta { max-width: 330px; font-size: 12px; font-weight: 750; line-height: 1.65; }
 .media-index-arrow { justify-self: end; font-size: clamp(28px, 3.2vw, 48px); font-weight: 400; transition: transform .4s var(--ease); }
 .media-index-trigger:hover .media-index-arrow, .media-index-trigger:focus-visible .media-index-arrow { transform: rotate(45deg); }
-.certificate-index-list .media-index-trigger::before { background: var(--ink); }
-.certificate-index-list .media-index-trigger:hover, .certificate-index-list .media-index-trigger:focus-visible { color: var(--paper); }
-.certificate-index-list .media-index-trigger:hover .media-index-arrow, .certificate-index-list .media-index-trigger:focus-visible .media-index-arrow { color: var(--lime); }
 
 .hover-media-preview { --preview-x: -500px; --preview-y: -500px; position: fixed; z-index: 1000; left: 0; top: 0; width: min(380px, calc(100vw - 32px)); pointer-events: none; opacity: 0; transform: translate3d(var(--preview-x), var(--preview-y), 0); transition: opacity .16s ease; will-change: transform, opacity; }
 .hover-media-preview.visible { opacity: 1; }
@@ -239,17 +236,6 @@ h1, h2, h3, p { margin-top: 0; }
 .education-card p { margin: 0; font-weight: 750; }
 .education-code { position: absolute; right: 15px; top: 14px; font-size: 9px; font-weight: 900; letter-spacing: .12em; }
 
-.certificate-grid { display: grid; gap: 18px; }
-.certificate-card { display: grid; grid-template-columns: minmax(270px, .65fr) minmax(0, 1.35fr); min-height: 410px; border: 1px solid var(--ink); }
-.certificate-copy { display: flex; flex-direction: column; padding: clamp(26px, 3vw, 48px); color: var(--paper); background: var(--ink); }
-.certificate-copy > span { font-size: 9px; font-weight: 900; letter-spacing: .15em; }
-.certificate-copy h3 { margin: auto 0 22px; font-size: clamp(30px, 3.4vw, 56px); line-height: .96; letter-spacing: -.055em; }
-.certificate-copy p { margin: 0; color: #c5c8c0; font-size: 13px; }
-.certificate-button { position: relative; display: grid; place-items: center; min-width: 0; padding: clamp(22px, 3vw, 46px); overflow: hidden; background: #e2e2db; border: 0; cursor: pointer; }
-.certificate-button img { width: 100%; height: auto; max-height: 440px; object-fit: contain; object-position: center; filter: drop-shadow(0 16px 24px rgba(0,0,0,.16)); transition: transform .55s var(--ease); }
-.certificate-button:hover img { transform: scale(1.018); }
-.certificate-button span { position: absolute; right: 14px; bottom: 12px; padding: 7px 9px; color: var(--ink); background: var(--lime); border: 1px solid var(--ink); font-size: 9px; font-weight: 950; letter-spacing: .1em; }
-
 .about { display: grid; grid-template-columns: 130px 1fr; gap: 4vw; padding: clamp(82px, 9vw, 145px) var(--pad); }
 .about-lead h2 { margin: 20px 0 0; font-size: clamp(48px, 7.2vw, 118px); line-height: .9; letter-spacing: -.075em; }
 .about-body { grid-column: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: 8vw; margin-top: 90px; }
@@ -295,17 +281,12 @@ h1, h2, h3, p { margin-top: 0; }
 .modal-tech span { padding: 8px 10px; color: var(--paper); background: var(--ink); font-size: 10px; font-weight: 850; }
 .modal-actions { display: flex; gap: 10px; margin-top: 28px; }
 .modal-actions a { padding: 13px 18px; color: var(--ink); background: var(--lime); border: 2px solid var(--ink); font-weight: 900; }
-.certificate-modal-shell { display: grid; place-items: center; padding: 24px; }
-.certificate-modal-shell[hidden] { display: none; }
-.certificate-modal { position: relative; display: grid; width: min(1500px, 96vw); max-height: 94vh; place-items: center; padding: 56px 20px 18px; color: var(--paper); background: var(--ink); overflow: auto; }
-.certificate-modal .modal-close { position: absolute; right: 12px; left: auto; top: 0; margin: 12px 0 0; }
-.certificate-modal img { width: 100%; height: auto; max-width: 1400px; max-height: calc(94vh - 105px); object-fit: contain; object-position: center; }
-.certificate-modal p { margin: 12px 0 0; font-size: 12px; font-weight: 850; }
 .noscript { position: fixed; z-index: 9999; left: 16px; right: 16px; bottom: 16px; padding: 14px; color: var(--ink); background: var(--lime); border: 2px solid var(--ink); }
 
 @media (max-width: 1100px) {
   .desktop-nav, .header-status { display: none; }
   .site-header { grid-template-columns: 1fr auto; }
+  .brand { justify-self: start; }
   .hero { grid-template-columns: 1fr .85fr; }
   .hero-name { font-size: clamp(90px, 15vw, 160px); }
   .hero-statement { grid-template-columns: 1fr; gap: 14px; }
@@ -386,11 +367,6 @@ h1, h2, h3, p { margin-top: 0; }
   .education-card { grid-column: 1 / -1; grid-template-columns: 86px 1fr; gap: 18px; min-height: 210px; margin-left: 10px; padding: 24px 18px; box-shadow: 8px 8px 0 var(--ink); }
   .education-card img { width: 80px; }
   .education-card h3 { font-size: 30px; }
-  .certificate-card { grid-template-columns: 1fr; }
-  .certificate-copy { min-height: 235px; }
-  .certificate-copy h3 { margin-top: auto; font-size: 36px; }
-  .certificate-button { min-height: 250px; padding: 18px; }
-  .certificate-button img { max-height: 310px; }
   .about-body { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 45px; margin-top: 58px; }
   .about-copy { font-size: 17px; }
   .footer { padding-top: 54px; }
@@ -403,15 +379,12 @@ h1, h2, h3, p { margin-top: 0; }
   .modal-media img { max-height: 54vh; }
   .modal-content dl, .modal-content > ul { grid-template-columns: 1fr; }
   .modal-content h2 { font-size: 47px; }
-  .certificate-modal-shell { padding: 7px; }
-  .certificate-modal { width: 100%; max-height: 98vh; }
-  .certificate-modal img { max-height: calc(98vh - 105px); }
 }
 
 @media (hover: none), (pointer: coarse) {
   .cursor { display: none; }
   .hover-media-preview, .image-trail { display: none; }
-  .project:hover .project-media img, .certificate-button:hover img { transform: none; }
+  .media-index-trigger:hover .media-index-name strong { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -424,25 +397,22 @@ h1, h2, h3, p { margin-top: 0; }
   :root { --paper: #fff; --ink: #000; }
   @page { size: A4; margin: 13mm; }
   body { color: #000; background: #fff; font-size: 10pt; }
-  .boot, .cursor, .scroll-progress, .site-header, .ticker, .hero-grid, .hero-actions, .project-hit, .project-links, .certificate-button span, .footer-links, .modal-shell, .hover-media-preview, .image-trail, .fluid-canvas { display: none !important; }
-  .hero, .manifesto, .work, .skills, .education, .awards, .about, .footer { display: block; min-height: auto; padding: 12mm 0; color: #000; background: #fff; break-inside: auto; }
+  .boot, .cursor, .scroll-progress, .site-header, .ticker, .hero-grid, .hero-actions, .modal-shell, .hover-media-preview, .image-trail, .fluid-canvas, [data-print] { display: none !important; }
+  .hero, .manifesto, .work, .skills, .education, .about, .footer { display: block; min-height: auto; padding: 12mm 0; color: #000; background: #fff; break-inside: auto; }
   .hero-name { font-size: 74pt; }
   .hero-visual { width: 68mm; min-height: 68mm; margin: 8mm 0; color: #000; background: #eee; border-radius: 0; }
   .portrait-tag { color: #000; background: #fff; border: 1px solid #000; }
-  .hero-meta, .manifesto-stats, .section-head, .project--featured, .project-grid, .skill-rack, .education-card, .certificate-card, .about-body { display: block; }
+  .hero-meta, .manifesto-stats, .section-head, .skill-rack, .education-card, .about-body { display: block; }
   .manifesto h2, .section-head h2, .education-title h2, .about h2 { font-size: 34pt; }
+  .section-head--dark, .manifesto-stats strong { color: #000; }
   .manifesto h2 em, .about h2 em { color: #000; }
-  .manifesto-stats div, .skill, .project, .education-card, .certificate-card { min-height: auto; margin: 6mm 0; padding: 6mm; color: #000; background: #fff; border: 1px solid #000; break-inside: avoid; box-shadow: none; }
-  .project-media, .certificate-button { background: #eee; }
-  .project-info { min-height: auto !important; padding: 6mm 0 0; }
-  .project-info h3 { margin: 8mm 0 3mm; font-size: 24pt; }
-  .project-info > p, .skill p, .certificate-copy p { color: #000; }
-  .certificate-copy { min-height: auto; padding: 0 0 5mm; color: #000; background: #fff; }
-  .certificate-button { display: block; padding: 0; }
-  .certificate-button img { max-height: 70mm; margin: auto; }
+  .manifesto-stats div, .skill, .education-card { min-height: auto; margin: 6mm 0; padding: 6mm; color: #000; background: #fff; border: 1px solid #000; break-inside: avoid; box-shadow: none; }
+  .skill p { color: #000; }
   .media-index-trigger { display: grid; grid-template-columns: 16mm 1fr 55mm 10mm; padding: 5mm 0; color: #000; }
   .media-index-trigger::before { display: none; }
   .media-index-name strong { font-size: 19pt; }
   .footer-name { font-size: 56pt; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 3mm 8mm; }
+  .footer-links a { padding: 0; color: #000; background: #fff; border: 0; }
   a[href^="http"]::after, a[href^="mailto"]::after { content: " (" attr(href) ")"; font-size: 8pt; }
 }

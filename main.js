@@ -22,9 +22,9 @@
       role: '本人负责信息整理、栏目规划、视觉方向、交互需求、素材选择和测试验收；使用 AI 辅助完成响应式布局、项目数据结构、无障碍交互与性能优化。',
       highlights: ['项目卡片与弹窗共享集中数据，避免内容漂移', '支持键盘操作、焦点管理和减少动画偏好', '使用 WebP、图片尺寸声明和懒加载优化体验', '提供 A4 打印样式，可直接导出 PDF 简历'],
       tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Accessibility', 'Print CSS'],
-      image: 'screenshots/resume-site.webp?v=20260831',
+      image: 'screenshots/resume-site.webp?v=20261023',
       imageAlt: '黄俊人个人简历网站截图',
-      actions: [{ label: 'GitHub', href: 'https://github.com/HJR258', external: true }]
+      actions: [{ label: '查看源码', href: 'https://github.com/HJR258/aipersonalcv', external: true }]
     },
     'ai-chat': {
       name: 'AI 聊天助手',
@@ -542,18 +542,6 @@
   document.querySelectorAll('.project-index-trigger').forEach((button) => {
     const row = button.closest('[data-project]');
     button.addEventListener('click', () => showProject(row?.dataset.project, button));
-  });
-
-  const certificateModal = document.getElementById('certificateModal');
-  const certificateImage = document.getElementById('certificateModalImage');
-  const certificateTitle = document.getElementById('certificateModalTitle');
-  document.querySelectorAll('.certificate-index-trigger').forEach((button) => {
-    button.addEventListener('click', () => {
-      certificateImage.src = button.dataset.certificate;
-      certificateImage.alt = button.dataset.title;
-      certificateTitle.textContent = button.dataset.title;
-      openModal(certificateModal, button);
-    });
   });
 
   document.querySelectorAll('[data-close]').forEach((element) => element.addEventListener('click', () => closeModal(element.closest('.modal-shell'))));
